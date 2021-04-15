@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 function RegisterForm() {
+  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
@@ -13,7 +15,9 @@ function RegisterForm() {
     dispatch({
       type: 'REGISTER',
       payload: {
+        name: name,
         username: username,
+        phoneNumber: phoneNumber,
         password: password,
       },
     });
@@ -27,21 +31,44 @@ function RegisterForm() {
           {errors.registrationMessage}
         </h3>
       )}
-      <div>
-        <label htmlFor="username">
-          Username:
+      <div className="nameInput registerInputs">
+        <label htmlFor="name">Name:</label>
           <input
             type="text"
-            name="username"
+            name="Name"
+            id="name"
+            value={name}
+            minlength="2"
+            required
+            onChange={(event) => setName(event.target.value)}
+          />
+      </div>
+      <div className="emailInput registerInputs">
+        <label htmlFor="email">Email:</label>
+          <input
+            type="text"
+            name="email"
+            id="email"
             value={username}
             required
             onChange={(event) => setUsername(event.target.value)}
           />
-        </label>
       </div>
-      <div>
-        <label htmlFor="password">
-          Password:
+      <div className="phoneInput registerInputs">
+        <label htmlFor="phone number">Phone Number:</label>
+          <input
+            type="tel"
+            name="phone number"
+            id="phone number"
+            placeholder="000-000-0000"
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+            value={phoneNumber}
+            required
+            onChange={(event) => setPhoneNumber(event.target.value)}
+          />
+      </div>
+      <div className="passwordInput registerInputs">
+        <label htmlFor="password">Password:</label>
           <input
             type="password"
             name="password"
@@ -49,7 +76,6 @@ function RegisterForm() {
             required
             onChange={(event) => setPassword(event.target.value)}
           />
-        </label>
       </div>
       <div>
         <input className="btn" type="submit" name="submit" value="Register" />

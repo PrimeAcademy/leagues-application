@@ -32,7 +32,8 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #ffa600;
+;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -55,7 +56,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #ff8c00;
   text-decoration: none;
 }
 
@@ -72,8 +73,8 @@ Button
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #ff8c00;
+  color: #ff8c00;
 }
 
 /* --------------------------------------------------------------------------------
@@ -96,6 +97,10 @@ Form Treatment
 -------------------------------------------------------------------------------- */
 
 .formPanel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   width: 400px;
   max-width: 100%;
@@ -104,6 +109,20 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+}
+
+.registerInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginInputs {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
